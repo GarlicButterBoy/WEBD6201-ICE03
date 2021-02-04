@@ -132,7 +132,7 @@ let myContact =
 
         $("#sendButton").on("click", ()=>
         {
-          if ($("#subscribeCheckbox")[0].checked)
+          if ($("#subscribeCheckbox").checked)
           {
             let contact = new core.Contact(fullName.value, contactNumber.value, emailAddress.value);
             if(contact.serialize()) //checking if the serialized object exists

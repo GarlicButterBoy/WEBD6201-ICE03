@@ -129,16 +129,24 @@ let myContact =
         });
         //let fullName = document.getElementById("fullName");
         //fullName.addEventListener("blur", function() {});
+        let checkBox = $("#subscribeCheckbox").on("change", function()
+        {
+          if ($(this).checked)
+          {
+              
+          }
+        });
+
+        console.log(checkBox);
 
         $("#sendButton").on("click", ()=>
         {
-          if ($("#subscribeCheckbox")[0].checked)
+          if ($("#subscribeCheckbox")
+
+          let contact = new core.Contact(fullName.value, contactNumber.value, emailAddress.value);
+          if(contact.serialize()) //checking if the serialized object exists
           {
-            let contact = new core.Contact(fullName.value, contactNumber.value, emailAddress.value);
-            if(contact.serialize()) //checking if the serialized object exists
-            {
-              localStorage.setItem((localStorage.length + 1).toString(), contact.serialize());
-            }
+            localStorage.setItem((localStorage.length + 1).toString(), contact.serialize());
           }
         });
 

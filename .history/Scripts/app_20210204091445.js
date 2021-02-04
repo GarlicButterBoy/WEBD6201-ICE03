@@ -132,13 +132,13 @@ let myContact =
 
         $("#sendButton").on("click", ()=>
         {
-          if ($("#subscribeCheckbox")[0].checked)
+          $("#subscribeCheckbox").on("checked");
+          document.getElementsById("")
+
+          let contact = new core.Contact(fullName.value, contactNumber.value, emailAddress.value);
+          if(contact.serialize()) //checking if the serialized object exists
           {
-            let contact = new core.Contact(fullName.value, contactNumber.value, emailAddress.value);
-            if(contact.serialize()) //checking if the serialized object exists
-            {
-              localStorage.setItem((localStorage.length + 1).toString(), contact.serialize());
-            }
+            localStorage.setItem((localStorage.length + 1).toString(), contact.serialize());
           }
         });
 
