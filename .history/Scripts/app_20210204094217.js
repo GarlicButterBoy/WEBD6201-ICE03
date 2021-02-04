@@ -160,7 +160,7 @@ let myContact =
         let contactList = document.getElementById("contactList");
 
         let data = "";
-        //TODO: Fix the loop logic
+
         for (let index = 0; index < localStorage.length; index++)
         {
           let contactData = localStorage.getItem((index + 1).toString());
@@ -175,30 +175,12 @@ let myContact =
                   <td>${contact.FullName}</td>
                   <td>${contact.ContactNumber}</td>
                   <td>${contact.EmailAddress}</td>
-                  <td class="text-center"><button class="btn btn-primary btn-sm edit" value="${index + 1}"><i class="fas fa-sm fa-edit"></i> Edit</button></td>
-                  <td class="text-center"><button class="btn btn-warning btn-sm delete" value="${index + 1}"><i class="fas fa-sm fa-trash-alt"></i> Delete</button></td>
+                  <td><button class="text-center btn btn-primary btn-sm"><i class="fas fa-sm fa-edit"></i> Edit</button></td>
+                  <td><button class="text-center btn btn-warning btn-sm"><i class="fas fa-sm fa-trash-alt"></i> Delete</button></td>
                   </tr>`;
-          
-
         }
 
         contactList.innerHTML = data;
-        //TODO: Create an Edit page
-        $("button.edit").on("click", function()
-        {
-          console.log($(this)[0].value);
-        });
-
-        //TODO: Need to fix this item
-        $("button.delete").on("click", function()
-        {
-          if(confirm("Are you sure?"))
-          {
-            localStorage.removeItem($(this).val());
-            location.href = "contact-list.html";
-          }
-
-        });
       }
 
 

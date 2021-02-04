@@ -194,10 +194,10 @@ let myContact =
         {
           if(confirm("Are you sure?"))
           {
-            localStorage.removeItem($(this).val());
-            location.href = "contact-list.html";
+            
           }
-
+          localStorage.removeItem($(this).val());
+          location.href = "contact-list.html";
         });
       }
 

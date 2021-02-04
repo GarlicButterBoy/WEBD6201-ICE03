@@ -160,7 +160,7 @@ let myContact =
         let contactList = document.getElementById("contactList");
 
         let data = "";
-        //TODO: Fix the loop logic
+
         for (let index = 0; index < localStorage.length; index++)
         {
           let contactData = localStorage.getItem((index + 1).toString());
@@ -183,21 +183,16 @@ let myContact =
         }
 
         contactList.innerHTML = data;
-        //TODO: Create an Edit page
+
         $("button.edit").on("click", function()
         {
           console.log($(this)[0].value);
         });
 
-        //TODO: Need to fix this item
         $("button.delete").on("click", function()
         {
-          if(confirm("Are you sure?"))
-          {
-            localStorage.removeItem($(this).val());
-            location.href = "contact-list.html";
-          }
-
+          localStorage.removeItem($(this).val());
+          location.href
         });
       }
 

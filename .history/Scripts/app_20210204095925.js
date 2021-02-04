@@ -160,7 +160,7 @@ let myContact =
         let contactList = document.getElementById("contactList");
 
         let data = "";
-        //TODO: Fix the loop logic
+        //TODO: Fix the loop 
         for (let index = 0; index < localStorage.length; index++)
         {
           let contactData = localStorage.getItem((index + 1).toString());
@@ -192,12 +192,8 @@ let myContact =
         //TODO: Need to fix this item
         $("button.delete").on("click", function()
         {
-          if(confirm("Are you sure?"))
-          {
-            localStorage.removeItem($(this).val());
-            location.href = "contact-list.html";
-          }
-
+          localStorage.removeItem($(this).val());
+          location.href = "contact-list.html";
         });
       }
 
