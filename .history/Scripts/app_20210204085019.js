@@ -100,7 +100,7 @@ let myContact =
     function displayContact()
     {
         //This is the same as below
-        let messageArea = $("#messageArea").hide();
+        $("#messageArea").hide();
         //Same as this
         //let messageArea = document.getElementById("messageArea");
         //messageArea.hidden = true;
@@ -112,7 +112,7 @@ let myContact =
             {
                 //JQuery example of the lines below
                 $(this).trigger("focus").trigger("select");
-                messageArea.show().addClass("alert alert-danger").text("Please enter an appropriate name");
+                $("#messageArea").show(3000).addClass("alert alert-danger").text("Please enter an appropriate name");
                 //fullName.focus();
                 //fullName.select();
                 //messageArea.hidden = false;
@@ -122,7 +122,7 @@ let myContact =
             else
             {
                 //JQuery example of the line below
-                messageArea.removeAttr("class").hide();
+                $("#messageArea").removeAttr("class").hide();
                 //messageArea.hidden = true;
                 //messageArea.removeAttribute("class");
             }

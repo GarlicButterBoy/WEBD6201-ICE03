@@ -122,7 +122,7 @@ let myContact =
             else
             {
                 //JQuery example of the line below
-                messageArea.removeAttr("class").hide();
+                $("#messageArea").removeAttr("class").hide();
                 //messageArea.hidden = true;
                 //messageArea.removeAttribute("class");
             }

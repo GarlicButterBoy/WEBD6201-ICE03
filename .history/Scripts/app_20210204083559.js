@@ -100,19 +100,22 @@ let myContact =
     function displayContact()
     {
         //This is the same as below
-        let messageArea = $("#messageArea").hide();
+        $("#messageArea").hide();
         //Same as this
         //let messageArea = document.getElementById("messageArea");
         //messageArea.hidden = true;
       
         // form validation
-        $("#fullName").on("blur", function() 
+        $("#fullName").on("blur", () => 
         {
-          if($(this).val().length < 2)
+          if($("#fullName").val().length < 2)
             {
-                //JQuery example of the lines below
-                $(this).trigger("focus").trigger("select");
-                messageArea.show().addClass("alert alert-danger").text("Please enter an appropriate name");
+                //JQuery example of the line below
+                $("#fullName").trigger("focus");
+                $("#fullName").trigger("select");
+                $("#messageArea").show();
+                $("#messageArea").addClass("alert alert-danger");
+                $("#messageArea").text("Please enter an appropriate name");
                 //fullName.focus();
                 //fullName.select();
                 //messageArea.hidden = false;
@@ -121,8 +124,10 @@ let myContact =
             }
             else
             {
+                
                 //JQuery example of the line below
-                messageArea.removeAttr("class").hide();
+                $("#messageArea").removeAttr("class");
+                $("#messageArea").hide();
                 //messageArea.hidden = true;
                 //messageArea.removeAttribute("class");
             }
@@ -130,24 +135,24 @@ let myContact =
         //let fullName = document.getElementById("fullName");
         //fullName.addEventListener("blur", function() {});
 
-        $("#sendButton").on("click", ()=>
-        {
-          let contact = new core.Contact(fullName.value, contactNumber.value, emailAddress.value);
-          if(contact.serialize()) //checking if the serialized object exists
-          {
-            localStorage.setItem((localStorage.length + 1).toString(), contact.serialize());
-          }
-        });
-
-        //let sendButton = document.getElementById("sendButton");
-        //sendButton.addEventListener("click", function(event){
-            
+        $("#sendButton").on("click", ()=>{
+          
+        })
+        let sendButton = document.getElementById("sendButton");
+        sendButton.addEventListener("click", function(event){
             //event.preventDefault();
-            //console.log(contact.serialize());
-            //fullName.value = "";
-            //contactNumber.value = "";
-            //emailAddress.value = "";
-        //});
+            let contact = new core.Contact(fullName.value, contactNumber.value, emailAddress.value);
+            console.log(contact.serialize());
+            
+            if(contact.serialize()) //checking if the serialized object exists
+            {
+              localStorage.setItem((localStorage.length + 1).toString(), contact.serialize());
+            }
+
+            fullName.value = "";
+            contactNumber.value = "";
+            emailAddress.value = "";
+        });
     }
     function displayContactList()
     {
